@@ -1,4 +1,3 @@
-
 // esbuild.config.js
 require('dotenv').config({ path: './.env.production' });
 const esbuild = require('esbuild');
@@ -54,8 +53,24 @@ esbuild.build({
     'process.env.GOOGLE_CLIENT_ID': `"${process.env.GOOGLE_CLIENT_ID}"`,
   },
   loader: {
-      '.tsx': 'tsx'
+    '.tsx': 'tsx'
   }
 }).then(() => {
-    console.log('Build finished successfully!');
+  console.log('Build finished successfully!');
+  
+  // Fix index.html for production deployment
+  const indexPath = path.join(distDir, 'index.html');
+  let html = fs.readFileSync(indexPath, 'utf8');
+  
+  // Remove the importmap script (dependencies are bundled in bundle.js)
+  html = html.replace(/<script type="importmap">[\s\S]*?<\/script>/g, '');
+  
+  // Replace /index.tsx with /bundle.js
+  html = html.replace(/<script type="module" src="\/index\.tsx"><\/script>/g, 
+    '<script src="/bundle.js"></script>');
+  
+  // Save the modified index.html
+  fs.writeFileSync(indexPath, html);
+  console.log('index.html patched for production!');
+  
 }).catch(() => process.exit(1));
