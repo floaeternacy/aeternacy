@@ -9,7 +9,7 @@ import {
     Plus, Wand2, CheckCircle2, X, SlidersHorizontal, 
     Heart, ChevronDown, Check, Tag, Users, Sparkles, Activity,
     Search, ImageIcon, Mic, Layers, ArrowRight, Bot, Calendar, Clock,
-    BookImage, Lock, SortAsc, SortDesc, FileText, Loader2
+    BookOpen, Lock, ArrowUpAZ, ArrowDownAZ, FileText, Loader
 } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import ShareModal from './ShareModal';
@@ -298,7 +298,7 @@ const MomentsPage: React.FC<MomentsPageProps> = ({
                                                 {[
                                                     { id: 'all', label: 'All', icon: Layers },
                                                     { id: 'moments', label: 'Moments', icon: ImageIcon },
-                                                    { id: 'journeys', label: 'Journeys', icon: BookImage }
+                                                    { id: 'journeys', label: 'Journeys', icon: BookOpen }
                                                 ].map(type => (
                                                     <button 
                                                         key={type.id} 
@@ -314,7 +314,7 @@ const MomentsPage: React.FC<MomentsPageProps> = ({
 
                                         {/* Sort Options */}
                                         <div>
-                                            <p className="flex items-center gap-2 text-[8px] font-black uppercase text-white/40 tracking-[0.2em] mb-3"><SortAsc size={10} /> Sequence Order</p>
+                                            <p className="flex items-center gap-2 text-[8px] font-black uppercase text-white/40 tracking-[0.2em] mb-3"><ArrowUpAZ size={10} /> Sequence Order</p>
                                             <div className="flex flex-wrap gap-2">
                                                 {[
                                                     { id: 'newest', label: 'Newest', icon: Clock },
@@ -475,7 +475,7 @@ const MomentsPage: React.FC<MomentsPageProps> = ({
                                     `}
                                 >
                                     {isWeaving ? (
-                                        <><Loader2 size={14} className="animate-spin" /> Synthesizing...</>
+                                        <><Loader size={14} className="animate-spin" /> Synthesizing...</>
                                     ) : (
                                         <><Sparkles size={14} /> Weave Journæy</>
                                     )}
