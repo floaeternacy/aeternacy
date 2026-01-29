@@ -3,12 +3,10 @@ import React, { useState } from 'react';
 import { 
     User, CreditCard, Mic, Lock, 
     Zap, ShieldCheck, ArrowRight,
-    Hourglass, Users, Landmark, ShieldPlus,
+    Timer, Users, Building2,
     UserCircle, CheckCircle2, History,
     Settings, Volume2, Sparkles, Globe,
-    ChevronRight, CreditCard as BillingIcon,
-    // Added Plus icon to fix the compilation error on line 188
-    Plus
+    ChevronRight, Plus
 } from 'lucide-react';
 import { Page, UserTier, CreditState, AeternyVoice } from '../types';
 import { useTheme } from '../contexts/ThemeContext';
@@ -26,11 +24,11 @@ const TABS: { id: SettingsTab; label: string; icon: any }[] = [
 ];
 
 const TIER_DATA: Record<UserTier, { label: string; color: string; bg: string; icon: any; desc: string }> = {
-    'free': { label: 'Trial', color: 'text-slate-400', bg: 'bg-slate-400/10', icon: Hourglass, desc: 'Evaluation access' },
+    'free': { label: 'Trial', color: 'text-slate-400', bg: 'bg-slate-400/10', icon: Timer, desc: 'Evaluation access' },
     'essæntial': { label: 'Essential', color: 'text-cyan-400', bg: 'bg-cyan-400/10', icon: User, desc: 'Personal vault' },
     'fæmily': { label: 'Family', color: 'text-indigo-400', bg: 'bg-indigo-400/10', icon: Users, desc: 'Shared house' },
-    'fæmily_plus': { label: 'Family Plus', color: 'text-purple-400', bg: 'bg-purple-400/10', icon: Landmark, desc: 'Dynasty archive' },
-    'lægacy': { label: 'Lægacy', color: 'text-[#B87D4B]', bg: 'bg-[#B87D4B]/10', icon: ShieldPlus, desc: 'Permanent protection' },
+    'fæmily_plus': { label: 'Family Plus', color: 'text-purple-400', bg: 'bg-purple-400/10', icon: Building2, desc: 'Dynasty archive' },
+    'lægacy': { label: 'Lægacy', color: 'text-[#B87D4B]', bg: 'bg-[#B87D4B]/10', icon: ShieldCheck, desc: 'Permanent protection' },
 };
 
 const ProfilePage: React.FC<any> = (props) => {
@@ -86,7 +84,7 @@ const ProfilePage: React.FC<any> = (props) => {
                                 className="group bg-white/5 border border-white/10 hover:bg-white/10 hover:border-cyan-500/30 px-6 py-4 rounded-3xl transition-all flex items-center gap-4"
                             >
                                 <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 border border-cyan-500/20">
-                                    <Landmark size={20} />
+                                    <Building2 size={20} />
                                 </div>
                                 <div className="text-left">
                                     <p className="text-[10px] font-black uppercase tracking-widest text-white">Archive Endowment</p>
@@ -193,7 +191,7 @@ const ProfilePage: React.FC<any> = (props) => {
                                         onClick={() => onNavigate(Page.Subscription)}
                                         className="w-full py-4 bg-white/5 border border-white/10 text-white font-bold rounded-2xl text-[10px] uppercase tracking-widest hover:bg-white/10 transition-all flex items-center justify-center gap-3"
                                     >
-                                        <Landmark size={14} className="text-cyan-400" /> Archive Endowment
+                                        <Building2 size={14} className="text-cyan-400" /> Archive Endowment
                                     </button>
                                 </div>
                             </div>

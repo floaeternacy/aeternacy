@@ -5,7 +5,7 @@ import {
     Wand2, Layers, BookOpen, Film, 
     Sparkles, ArrowRight, Zap, Info, 
     Bot, Database, Layout, Mic,
-    Landmark, Clock, Palette, BookImage
+    Building2, Clock, Palette
 } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { TOKEN_COSTS } from '../services/costCatalog';
@@ -156,7 +156,7 @@ const StudioPage: React.FC<StudioPageProps> = ({ onNavigate, userTier, tokenStat
                         title="Print Shop"
                         subtitle="Physical Editions"
                         description="Order magazines and hardcovers."
-                        icon={BookImage}
+                        icon={BookOpen}
                         page={Page.Shop}
                         image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1200&auto=format&fit=crop"
                         onNavigate={onNavigate}

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Page, UserTier, Moment, Journey } from '../types';
-import { Lock, Clock, Mic, BookMarked, ShieldCheck, Users, Wand2, BookImage, Headphones, BrainCircuit, ArrowRight } from 'lucide-react';
+import { Lock, Clock, Mic, BookMarked, ShieldCheck, Users, Wand2, BookOpen, Headphones, Brain, ArrowRight } from 'lucide-react';
 import LegacyIcon from './icons/LegacyIcon';
 import GridView from './GridView';
 import Slideshow from './Slideshow';
@@ -103,7 +103,7 @@ const LegacyDashboard: React.FC<{
                     <DashboardCard icon={BookMarked} title="Creation Suite" description="Design and order physical magazines and photobooks from your moments." page={Page.Shop} />
                     <div className="md:col-span-2 lg:col-span-1">
                         <DashboardCard 
-                          icon={BrainCircuit} 
+                          icon={Brain} 
                           title="VR Lab" 
                           description="Go beyond remembering. Step back in time and relive moments in hyper-realistic VR & AR." 
                           page={Page.VRLab} 
@@ -212,7 +212,7 @@ const LegacySpacePage: React.FC<LegacySpacePageProps> = ({ userTier, onNavigate,
                     <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                         <div className="flex gap-4"><Users className="w-8 h-8 text-cyan-400 flex-shrink-0 mt-1" /><div><h4 className="font-bold text-white text-lg">Family Tree & Trust</h4><p className="text-slate-400 mt-1">Connect generations with roles. Invite family to collaborate and inherit access.</p></div></div>
                         <div className="flex gap-4"><Wand2 className="w-8 h-8 text-cyan-400 flex-shrink-0 mt-1" /><div><h4 className="font-bold text-white text-lg">æterny Curation</h4><p className="text-slate-400 mt-1">AI-driven empathy mode refines your archives, generating beautifully written retrospectives.</p></div></div>
-                        <div className="flex gap-4"><BookImage className="w-8 h-8 text-cyan-400 flex-shrink-0 mt-1" /><div><h4 className="font-bold text-white text-lg">Magæzine & Photobook</h4><p className="text-slate-400 mt-1">Physical extensions of your story, including quarterly digests and handcrafted books.</p></div></div>
+                        <div className="flex gap-4"><BookOpen className="w-8 h-8 text-cyan-400 flex-shrink-0 mt-1" /><div><h4 className="font-bold text-white text-lg">Magæzine & Photobook</h4><p className="text-slate-400 mt-1">Physical extensions of your story, including quarterly digests and handcrafted books.</p></div></div>
                         <div className="flex gap-4"><Headphones className="w-8 h-8 text-cyan-400 flex-shrink-0 mt-1" /><div><h4 className="font-bold text-white text-lg">Curation Concierge</h4><p className="text-slate-400 mt-1">Personalized assistance and priority support to help you curate your family's archive.</p></div></div>
                     </div>
                 </div>
