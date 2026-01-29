@@ -1,8 +1,9 @@
+
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Page, UserTier } from '../types';
 import { 
-    ArrowLeft, ArrowRight, Headset, Book, Mic, Video, Coffee, Feather, Play, 
-    CheckCircle, Lock, Sparkles, Headphones, Star, Calendar, StopCircle, Save, 
+    ArrowLeft, ArrowRight, Headphones, Book, Mic, Video, Coffee, Feather, Play, 
+    CheckCircle, Lock, Sparkles, Star, Calendar, StopCircle, Save, 
     X, BrainCircuit, MicOff, Send, Bot, Infinity, Waves, Info, 
     Lightbulb, History, Cpu, FileText, Zap,
     ShieldCheck, Loader2, CheckCircle2,
@@ -345,7 +346,7 @@ const BiograferPage: React.FC<BiograferPageProps> = ({ onBack, onNavigate, trigg
           <div className="h-20 px-4 sm:px-8 flex justify-between items-center border-b border-white/5 bg-black/20 backdrop-blur-2xl">
               <div className="flex items-center gap-4 sm:gap-6">
                   <div className="w-10 h-10 bg-cyan-600 rounded-xl flex items-center justify-center text-white">
-                      <Headset size={20} />
+                      <Headphones size={20} />
                   </div>
                   <div className="hidden xs:block">
                       <h2 className="text-[10px] font-black uppercase text-white/40">Studio</h2>
