@@ -4,7 +4,7 @@ import { Moment, AeternyVoice, AeternyStyle } from '../types';
 import { textToSpeech } from '../services/geminiService';
 import { 
     X, Play, Pause, Volume2, VolumeX, SkipBack, SkipForward, 
-    ImageIcon, Loader2, Captions, CaptionsOff, RotateCcw, 
+    Image, Loader, Subtitles, RefreshCcw, 
     ArrowRight, Bot, Sparkles, MapPin, ChevronRight, ChevronLeft,
     Settings2, SlidersHorizontal, Music, Waves, Clock, Zap,
     Maximize, Layers, MoveHorizontal
@@ -421,7 +421,7 @@ const LivingSlideshowPlayer: React.FC<LivingSlideshowPlayerProps> = ({
                                 className={`w-full flex items-center justify-between p-4 rounded-2xl border transition-all ${settings.showSubtitles ? 'bg-white/10 border-white/20 text-white' : 'border-white/5 text-slate-600'}`}
                             >
                                 <span className="text-[10px] font-bold uppercase tracking-widest">Luminous Subtitles</span>
-                                {settings.showSubtitles ? <Captions size={16}/> : <CaptionsOff size={16}/>}
+                                {settings.showSubtitles ? <Subtitles size={16}/> : <X size={16}/>}
                             </button>
                         </div>
                     </div>
@@ -433,7 +433,7 @@ const LivingSlideshowPlayer: React.FC<LivingSlideshowPlayerProps> = ({
                     <div className="relative max-w-4xl w-full px-4 sm:px-8 flex flex-col items-center">
                         <div className="bg-slate-900/80 backdrop-blur-3xl border border-white/10 rounded-[3rem] p-8 md:p-12 shadow-3xl w-full animate-fade-in-up flex flex-col items-center">
                             <div className="w-full flex justify-between items-start mb-10">
-                                <button onClick={handleRestart} className="w-12 h-12 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all active:scale-90"><RotateCcw size={20} /></button>
+                                <button onClick={handleRestart} className="w-12 h-12 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all active:scale-90"><RefreshCcw size={20} /></button>
                                 <div className="text-center">
                                     <h2 className="text-2xl font-brand font-bold text-white tracking-tighter mb-1">{moment.title}</h2>
                                     <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500">Archive Chapter Sealed</p>
@@ -458,7 +458,7 @@ const LivingSlideshowPlayer: React.FC<LivingSlideshowPlayerProps> = ({
                                                     <div className="absolute bottom-6 left-6 right-6 z-20">
                                                         <div className="flex items-center gap-2 mb-2"><span className="h-px w-3 bg-cyan-400"></span><span className="text-[8px] font-black uppercase tracking-[0.3em] text-cyan-400">{nextM.date}</span></div>
                                                         <h3 className="text-base font-bold font-brand tracking-tighter leading-tight text-white mb-3 line-clamp-2">{nextM.title}</h3>
-                                                        <div className="flex items-center gap-3">{nextM.location && <div className="flex items-center gap-1"><MapPin size={8} className="text-cyan-400" /><span className="text-[8px] font-black text-slate-300 uppercase tracking-widest truncate max-w-[80px]">{nextM.location.split(',')[0]}</span></div>}<div className="flex items-center gap-1"><ImageIcon size={8} className="text-cyan-400" /><span className="text-[8px] font-black text-slate-300 uppercase tracking-widest">{nextM.photoCount || 1} items</span></div></div>
+                                                        <div className="flex items-center gap-3">{nextM.location && <div className="flex items-center gap-1"><MapPin size={8} className="text-cyan-400" /><span className="text-[8px] font-black text-slate-300 uppercase tracking-widest truncate max-w-[80px]">{nextM.location.split(',')[0]}</span></div>}<div className="flex items-center gap-1"><Image size={8} className="text-cyan-400" /><span className="text-[8px] font-black text-slate-300 uppercase tracking-widest">{nextM.photoCount || 1} items</span></div></div>
                                                     </div>
                                                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 bg-black/10 backdrop-blur-[2px] z-30">
                                                         <div className="bg-white text-black px-5 py-2 rounded-full text-[8px] font-black uppercase tracking-widest flex items-center shadow-xl transform translate-y-2 group-hover:translate-y-0 transition-transform">
@@ -495,7 +495,7 @@ const LivingSlideshowPlayer: React.FC<LivingSlideshowPlayerProps> = ({
                     <div className="flex items-center justify-between">
                          <div className="flex items-center gap-4">
                             <button onClick={() => updateSetting('narrationVolume', settings.narrationVolume > 0 ? 0 : 1)} className="text-white/40 hover:text-white transition-colors">
-                                {narrationState === 'loading' ? <Loader2 className="w-6 h-6 animate-spin" /> : settings.narrationVolume > 0 ? <Volume2 size={24} /> : <VolumeX size={24} />}
+                                {narrationState === 'loading' ? <Loader className="w-6 h-6 animate-spin" /> : settings.narrationVolume > 0 ? <Volume2 size={24} /> : <VolumeX size={24} />}
                             </button>
                             {narrationState === 'playing' && <div className="flex items-center gap-1.5"><div className="w-1 h-3 bg-cyan-400 rounded-full animate-vocal-wave"></div><div className="w-1 h-5 bg-cyan-400 rounded-full animate-vocal-wave" style={{animationDelay: '0.1s'}}></div><div className="w-1 h-2 bg-cyan-400 rounded-full animate-vocal-wave" style={{animationDelay: '0.2s'}}></div></div>}
                          </div>
@@ -512,7 +512,7 @@ const LivingSlideshowPlayer: React.FC<LivingSlideshowPlayerProps> = ({
                         </div>
 
                         <button onClick={() => updateSetting('showSubtitles', !settings.showSubtitles)} className={`transition-colors ${settings.showSubtitles ? 'text-cyan-400' : 'text-white/40'}`}>
-                            {settings.showSubtitles ? <Captions size={24} /> : <CaptionsOff size={24} />}
+                            {settings.showSubtitles ? <Subtitles size={24} /> : <X size={24} />}
                         </button>
                     </div>
                 </div>
