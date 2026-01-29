@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { Page, UserTier, Moment, Journey } from '../types';
-import { Lock, Clock, Mic, BookOpen, ShieldCheck, Users, Wand2, BookImage, Headset, BrainCircuit, ArrowRight } from 'lucide-react';
+import { Lock, Clock, Mic, BookMarked, ShieldCheck, Users, Wand2, BookImage, Headphones, BrainCircuit, ArrowRight } from 'lucide-react';
 import LegacyIcon from './icons/LegacyIcon';
 import GridView from './GridView';
 import Slideshow from './Slideshow';
@@ -15,7 +16,6 @@ interface LegacySpacePageProps {
     onSelectMoment: (moment: Moment) => void;
 }
 
-// Comment: Replaced placeholder text with actual Feature component
 const Feature: React.FC<{ icon: React.ElementType, title: string, description: string }> = ({ icon: Icon, title, description }) => (
     <div className="flex flex-col items-center text-center">
         <div className="w-16 h-16 bg-amber-500/10 rounded-xl flex items-center justify-center ring-1 ring-amber-500/20 mb-4">
@@ -26,7 +26,6 @@ const Feature: React.FC<{ icon: React.ElementType, title: string, description: s
     </div>
 );
 
-// Comment: Replaced placeholder text with actual LegacyDashboard component
 const LegacyDashboard: React.FC<{ 
     onNavigate: (page: Page) => void; 
     profilePic: string | null; 
@@ -101,7 +100,7 @@ const LegacyDashboard: React.FC<{
                     <DashboardCard icon={ShieldCheck} title="Legacy Trust" description="Appoint stewards and manage your succession protocol to ensure your story endures." page={Page.LegacyTrust} />
                     <DashboardCard icon={Clock} title="Time Capsules" description="Create time-locked messages and legacy letters for the future." page={Page.TimeCapsule} />
                     <DashboardCard icon={Mic} title="The Biografær" description="Engage in AI-guided interviews to build a rich, comprehensive life story." page={Page.Biografer} />
-                    <DashboardCard icon={BookOpen} title="Creation Suite" description="Design and order physical magazines and photobooks from your moments." page={Page.Shop} />
+                    <DashboardCard icon={BookMarked} title="Creation Suite" description="Design and order physical magazines and photobooks from your moments." page={Page.Shop} />
                     <div className="md:col-span-2 lg:col-span-1">
                         <DashboardCard 
                           icon={BrainCircuit} 
@@ -141,7 +140,6 @@ const LegacyDashboard: React.FC<{
 };
 
 
-// Comment: Replaced placeholder text with actual LegacySpacePage component
 const LegacySpacePage: React.FC<LegacySpacePageProps> = ({ userTier, onNavigate, profilePic, userName, moments, journeys, onSelectMoment }) => {
     
     if (userTier === 'lægacy') {
@@ -188,7 +186,7 @@ const LegacySpacePage: React.FC<LegacySpacePageProps> = ({ userTier, onNavigate,
                             description="Engage in empathic AI interview sessions that are woven into a coherent life biography, told in your own voice."
                         />
                         <Feature
-                            icon={BookOpen}
+                            icon={BookMarked}
                             title="Creation Suite"
                             description="Transform your digital story into tangible hærlooms like museum-quality photobooks, magazines, and daily journals."
                         />
@@ -215,7 +213,7 @@ const LegacySpacePage: React.FC<LegacySpacePageProps> = ({ userTier, onNavigate,
                         <div className="flex gap-4"><Users className="w-8 h-8 text-cyan-400 flex-shrink-0 mt-1" /><div><h4 className="font-bold text-white text-lg">Family Tree & Trust</h4><p className="text-slate-400 mt-1">Connect generations with roles. Invite family to collaborate and inherit access.</p></div></div>
                         <div className="flex gap-4"><Wand2 className="w-8 h-8 text-cyan-400 flex-shrink-0 mt-1" /><div><h4 className="font-bold text-white text-lg">æterny Curation</h4><p className="text-slate-400 mt-1">AI-driven empathy mode refines your archives, generating beautifully written retrospectives.</p></div></div>
                         <div className="flex gap-4"><BookImage className="w-8 h-8 text-cyan-400 flex-shrink-0 mt-1" /><div><h4 className="font-bold text-white text-lg">Magæzine & Photobook</h4><p className="text-slate-400 mt-1">Physical extensions of your story, including quarterly digests and handcrafted books.</p></div></div>
-                        <div className="flex gap-4"><Headset className="w-8 h-8 text-cyan-400 flex-shrink-0 mt-1" /><div><h4 className="font-bold text-white text-lg">Curation Concierge</h4><p className="text-slate-400 mt-1">Personalized assistance and priority support to help you curate your family's archive.</p></div></div>
+                        <div className="flex gap-4"><Headphones className="w-8 h-8 text-cyan-400 flex-shrink-0 mt-1" /><div><h4 className="font-bold text-white text-lg">Curation Concierge</h4><p className="text-slate-400 mt-1">Personalized assistance and priority support to help you curate your family's archive.</p></div></div>
                     </div>
                 </div>
             </section>
