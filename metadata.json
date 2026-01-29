@@ -1,0 +1,9 @@
+{
+  "name": "æternacy™ Beta 2.0",
+  "description": "uxui improvemebts",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
